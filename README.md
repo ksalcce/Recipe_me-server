@@ -2,9 +2,6 @@
 
 > The server side for the Pantry Buddy App
 
-## Build Status:
-
-![Build Status](https://travis-ci.org/thinkful-c11/book-thing.io.svg?branch=master)
 
 ## Built with:
 
@@ -34,5 +31,3 @@
 
 - [Repo](https://github.com/omegacoo/Recipe_me)
 
-## Author:
-* **Ben Sumser**
