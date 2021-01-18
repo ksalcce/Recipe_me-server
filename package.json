@@ -1,0 +1,44 @@
+{
+  "name": "recipe_me_server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --require test/setup.js",
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "predeploy": "npm run migrate:production && npm run seed",
+    "deploy": "git push heroku master",
+    "migrate": "postgrator --config postgrator-config.js",
+    "migrate:test": "env NODE_ENV=test npm run migrate",
+    "migrate:production": "env SSL=true DATABASE_URL=$(heroku config:get DATABASE_URL) npm run migrate",
+    "seed": "psql -h ec2-18-235-97-230.compute-1.amazonaws.com -d deu06qntv5kd9c -U ccjqyyvqrtrixn -f seeds/seeds.sql"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "helmet": "^3.21.2",
+    "jsonwebtoken": "^8.5.1",
+    "knex": "^0.20.11",
+    "morgan": "^1.9.1",
+    "pg": "^7.18.2",
+    "xss": "^1.0.6",
+    "minimist": ">=0.2.1"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^7.1.1",
+    "nodemon": "^2.0.2",
+    "postgrator-cli": "^3.3.0",
+    "supertest": "^4.0.2"
+  },
+  "engines": {
+    "node": "10.15.0"
+  }
+}
